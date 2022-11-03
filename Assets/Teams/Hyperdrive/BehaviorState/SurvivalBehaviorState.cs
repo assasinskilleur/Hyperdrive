@@ -1,6 +1,7 @@
 using BehaviorDesigner.Runtime;
 using System.Collections;
 using System.Collections.Generic;
+using Hyperdrive;
 using UnityEngine;
 
 public class SurvivalBehaviorState : StateMachineBehaviour
@@ -11,6 +12,7 @@ public class SurvivalBehaviorState : StateMachineBehaviour
     {
         animator.gameObject.GetComponent<BehaviorTree>().ExternalBehavior = myBehaviorTree;
         animator.GetComponent<BehaviorTree>().EnableBehavior();
+        animator.gameObject.GetComponent<HyperdriveController>().SetCurrentBehaviorTree(animator.gameObject.GetComponent<BehaviorTree>().ExternalBehavior);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
