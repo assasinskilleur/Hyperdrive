@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: Hunt
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: 
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(192.5,30)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(-2.20047379,140.3912)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(10,130)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-512.7299,144.84848)","Comment":"Savoir
+        si il y a un objet entre les deux joueurs"},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-328.8235,131.176514)"},"ID":4,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareBool","NodeData":{"Offset":"(-188.154129,147.521362)","Comment":"Si
+        il y a une mine sur la trajectoire"},"ID":5,"Name":"Compare Bool","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Mine","IsShared":true,"BooleanmValue":false},"SharedBoolcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(29.9284554,150.3852)","Comment":"Le
+        joueur doit tirer sur la mine"},"ID":6,"Name":"Fire","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(241.764587,150)","Comment":"Le
+        joueur se dirige sur l''autre joueur"},"ID":7,"Name":"Go to the player","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(257.5398,130.142609)"},"ID":8,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareBool","NodeData":{"Offset":"(-102.281616,159.411743)","Comment":"Si
+        il y a un asteroid sur la trajectoire"},"ID":9,"Name":"Compare Bool","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Asteroid","IsShared":true,"BooleanmValue":false},"SharedBoolcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(159.99971,164.117554)","Comment":"Le
+        joueur contourne l''ast\u00e9ro\u00efd"},"ID":10,"Name":"Avoid","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(632.352234,150)","Comment":"Si
+        il n''y a pas d''objets entre les deux joueurs"},"ID":11,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.ModifyString","NodeData":{"Offset":"(-156.470337,130.588074)","Comment":"Le
+        joueur se dirige sur l''autre joueur"},"ID":12,"Name":"Go to the player","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(71.17633,225.882385)"},"ID":13,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareBool","NodeData":{"Offset":"(-196.25,106.875)","Comment":"Est-ce
+        que le joueur est en frame d''invuln\u00e9rabilit\u00e9"},"ID":14,"Name":"Compare
+        Bool","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"EnemyInvulnerability","IsShared":true,"BooleanmValue":false},"SharedBoolcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(146.469727,118.823486)","Comment":"Tirer
+        sur l''adversaire"},"ID":15,"Name":"Fire","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Mine","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Asteroid","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"EnemyInvulnerability","IsShared":true,"BooleanmValue":false}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.1
