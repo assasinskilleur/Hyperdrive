@@ -24,6 +24,8 @@ namespace Hyperdrive {
 				UpdateEnemyDistanceVariables(spaceship, otherSpaceship);
 				UpdateOwnEnergyVariables(spaceship);
 				UpdateClosestMineVariables(spaceship, data.Mines);
+				MineInLigne(spaceship, data.Mines);
+				ShootEnemyPerfectTime(spaceship, otherSpaceship);
 			}
 
 			// Get closest waypoint
@@ -124,6 +126,34 @@ namespace Hyperdrive {
 		public void SetCurrentBehaviorTree(ExternalBehavior behavior)
 		{
 			currentBehaviorTree = behavior;
+		}
+
+		private void MineInLigne (SpaceShipView us, List<MineView> allMines)
+        {
+			RaycastHit2D[] hit2D = Physics2D.RaycastAll(us.Position, us.LookAt);
+			RaycastHit2D RaycastMine = hit2D.FirstOrDefault(raycastHit2D =>
+			raycastHit2D.collider.transform.parent.gameObject.TryGetComponent(out Mine mine));
+			
+			if(RaycastMine.distance != 0 )
+				currentBehaviorTree.GetVariable("Mine").SetValue(true);
+			else
+				currentBehaviorTree.GetVariable("Mine").SetValue(false);
+
+
+		}
+
+		private void ShootEnemyPerfectTime(SpaceShipView us, SpaceShipView enemy)
+        {
+			//GameObject.Find("SpaceShip" + (enemy.Owner + 1)).GetComponent<SpaceShip>().IsStun();
+			float currentDistance = (us.Position - enemy.Position).sqrMagnitude;
+			float time = currentDistance / Bullet.Speed;
+
+			if(time < enemy.HitCountdown)
+				currentBehaviorTree.GetVariable("EnemyInvulnerability").SetValue(false);
+			else
+				currentBehaviorTree.GetVariable("EnemyInvulnerability").SetValue(true);
+
+
 		}
 	}
 
