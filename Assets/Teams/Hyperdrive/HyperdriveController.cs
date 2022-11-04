@@ -9,7 +9,7 @@ namespace Hyperdrive {
 
 	public class HyperdriveController : BaseSpaceShipController
 	{
-		private ExternalBehavior currentBehaviorTree;
+		private BehaviorTree currentBehaviorTree;
 		
 		public override void Initialize(SpaceShipView spaceship, GameData data)
 		{
@@ -30,43 +30,42 @@ namespace Hyperdrive {
 
 			// Get closest waypoint
 			WayPointView closestWaypoint = GetClosestWaypoint(spaceship, data.WayPoints);
+
+			float thrust = 1.0f;
+			// float targetOrient = spaceship.Orientation;//spaceship.Orientation + 90.0f;
 			
-			// Get first asteroid in front of us
-			RaycastHit2D[] hit2D = Physics2D.RaycastAll(spaceship.Position, spaceship.LookAt);
-			Debug.DrawRay(spaceship.Position, spaceship.LookAt, Color.red);
-			RaycastHit2D asteroid = hit2D.FirstOrDefault(raycastHit2D =>
-				raycastHit2D.collider.transform.parent.gameObject.TryGetComponent(out Asteroid asteroid));
-			if (asteroid.distance != 0.0f)
+			
+			
+			bool needShoot = AimingHelpers.CanHit(spaceship, otherSpaceship.Position, otherSpaceship.Velocity, 0.15f);
+			float targetOrient = AimingHelpers.ComputeSteeringOrient(spaceship, otherSpaceship.Position);
+
+			bool shockwave = false;
+			bool shoot = false;
+			bool mine = false;
+
+			SharedBool huntShoot = (SharedBool) currentBehaviorTree.GetVariable("Fire");
+
+			if (huntShoot != null)
 			{
-				Debug.Log($"Raycast hit an asteroid {asteroid.distance}");
+				if (huntShoot.Value)
+				{
+					huntShoot.Value = false;
+					shoot = true;
+				}
 			}
 
-			Debug.Log($"Closest waypoint is {(closestWaypoint.Position - spaceship.Position).sqrMagnitude} ");
-			
-			if (asteroid.distance <= (closestWaypoint.Position - spaceship.Position).sqrMagnitude)
-			{
-				Debug.Log($"target is blocked by asteroids");
-			}
-			
-			float thrust = 0.0f;
-			float targetOrient = spaceship.Orientation;//spaceship.Orientation + 90.0f;
-			// bool needShoot = AimingHelpers.CanHit(spaceship, otherSpaceship.Position, otherSpaceship.Velocity, 0.15f);
-			// float targetOrient = AimingHelpers.ComputeSteeringOrient(spaceship, otherSpaceship.Position);
+			SharedBool seekShock = (SharedBool) currentBehaviorTree.GetVariable("UseShockwave");
 
-			if (Input.GetKey(KeyCode.O))
+			if (seekShock != null)
 			{
-				thrust = 1.0f;
-			}
-
-			if (Input.GetKey(KeyCode.M))
-			{
-				targetOrient += 20.0f;
-			} else if (Input.GetKey(KeyCode.K))
-			{
-				targetOrient -= 20.0f;
+				if (seekShock.Value)
+				{
+					shockwave = true;
+					seekShock.Value = false;
+				}
 			}
 			
-			return new InputData(thrust, targetOrient, false, false, false);
+			return new InputData(thrust, targetOrient, needShoot, false, false);
 		}
 
 		private WayPointView GetClosestWaypoint(SpaceShipView us, List<WayPointView> wayPointViews)
@@ -123,7 +122,7 @@ namespace Hyperdrive {
 				seekMineRange.Value = minDistance;
 		}
 
-		public void SetCurrentBehaviorTree(ExternalBehavior behavior)
+		public void SetCurrentBehaviorTree(BehaviorTree behavior)
 		{
 			currentBehaviorTree = behavior;
 		}
@@ -135,9 +134,9 @@ namespace Hyperdrive {
 			raycastHit2D.collider.transform.parent.gameObject.TryGetComponent(out Mine mine));
 			
 			if(RaycastMine.distance != 0 )
-				currentBehaviorTree.GetVariable("Mine").SetValue(true);
+				currentBehaviorTree.GetVariable("Mine")?.SetValue(true);
 			else
-				currentBehaviorTree.GetVariable("Mine").SetValue(false);
+				currentBehaviorTree.GetVariable("Mine")?.SetValue(false);
 
 
 		}
@@ -149,9 +148,9 @@ namespace Hyperdrive {
 			float time = currentDistance / Bullet.Speed;
 
 			if(time < enemy.HitCountdown)
-				currentBehaviorTree.GetVariable("EnemyInvulnerability").SetValue(false);
+				currentBehaviorTree.GetVariable("EnemyInvulnerability")?.SetValue(false);
 			else
-				currentBehaviorTree.GetVariable("EnemyInvulnerability").SetValue(true);
+				currentBehaviorTree.GetVariable("EnemyInvulnerability")?.SetValue(true);
 
 
 		}

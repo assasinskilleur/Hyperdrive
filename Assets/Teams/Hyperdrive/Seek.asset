@@ -20,39 +20,39 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(773.5,30)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(3.5,170)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(3.5,160)"},"ID":2,"Name":"Quelle
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(773.5,30)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(3.5,170)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(3.5,160)"},"ID":2,"Name":"Quelle
         action ?","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-580,130)","Comment":"Le
         joueur commence par \nv\u00e9rifier si il y a un enemie \nproche de lui"},"ID":3,"Name":"Enemy
         in range","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareFloat","NodeData":{"Offset":"(-130,110)","Comment":"Es-ce-que
         l''Enemy est \nen range de Shockwave"},"ID":4,"Name":"Compare Range","Instant":true,"SharedFloatvariable":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Enemy
-        Range","IsShared":true,"SinglemValue":0},"OPERATORop":"LOWER","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
-        Range","IsShared":true,"SinglemValue":5}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(110,120)","Comment":"y-a-t-il
+        Range","IsShared":true,"SinglemValue":0.6660755},"OPERATORop":"LOWER_OR_EQUAL","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
+        Range","IsShared":true,"SinglemValue":2.2}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(110,120)","Comment":"y-a-t-il
         assez \nd''energie"},"ID":5,"Name":"Enough energy ?","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareFloat","NodeData":{"Offset":"(-100,150)"},"ID":6,"Name":"Compare
         Energy","Instant":true,"SharedFloatvariable":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Player
-        Energy","IsShared":true,"SinglemValue":0},"OPERATORop":"GREATER","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
-        Energy","IsShared":true,"SinglemValue":0.4}},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(110,150)"},"ID":7,"Name":"Use
-        ShockWave","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,160)","Comment":"Le
+        Energy","IsShared":true,"SinglemValue":1},"OPERATORop":"GREATER_OR_EQUAL","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
+        Energy","IsShared":true,"SinglemValue":0.4}},{"Type":"IIM.ModifyBool","NodeData":{"Offset":"(61.9717751,152.952576)"},"ID":7,"Name":"Use
+        Shockwave","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"UseShockwave","IsShared":true,"BooleanmValue":false},"OPERATORop":"SET","SharedBoolvalue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,160)","Comment":"Le
         joueur regarde ensuite si il \ny a une mine a proximit\u00e9"},"ID":8,"Name":"Mine
         in range","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareFloat","NodeData":{"Offset":"(-140,110)","Comment":"Es-ce-que
         la Mine est \nen range de Shockwave"},"ID":9,"Name":"Compare Float","Instant":true,"SharedFloatvariable":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Mine
-        range","IsShared":true,"SinglemValue":0},"OPERATORop":"LOWER","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
-        Range","IsShared":true,"SinglemValue":5}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(130,110)","Comment":"y-a-t-il
+        range","IsShared":true,"SinglemValue":9999},"OPERATORop":"LOWER","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
+        Range","IsShared":true,"SinglemValue":2.2}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(130,110)","Comment":"y-a-t-il
         assez \nd''energie"},"ID":10,"Name":"Enough energy ?","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareFloat","NodeData":{"Offset":"(-100,150)"},"ID":11,"Name":"Compare
         Energy","Instant":true,"SharedFloatvariable":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Player
-        Energy","IsShared":true,"SinglemValue":0},"OPERATORop":"GREATER","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
-        Energy","IsShared":true,"SinglemValue":0.4}},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(110,150)"},"ID":12,"Name":"Use
-        ShockWave","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(550,170)"},"ID":13,"Name":"Asteroid
+        Energy","IsShared":true,"SinglemValue":1},"OPERATORop":"GREATER","SharedFloatcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
+        Energy","IsShared":true,"SinglemValue":0.4}},{"Type":"IIM.ModifyBool","NodeData":{"Offset":"(84.12573,155.353149)"},"ID":12,"Name":"Use
+        Shockwave","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"UseShockwave","IsShared":true,"BooleanmValue":false},"OPERATORop":"SET","SharedBoolvalue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(550,170)"},"ID":13,"Name":"Asteroid
         in the Way","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"IIM.CompareBool","NodeData":{"Offset":"(-114.5,170)"},"ID":14,"Name":"Is
         there Asteroid in the way ?","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Asteroid
         in the way","IsShared":true,"BooleanmValue":false},"SharedBoolcompareTo":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(110,170)"},"ID":15,"Name":"Avoid
-        Asteroid","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]},{"Type":"IIM.ModifyString","NodeData":{"Offset":"(915.5,180)"},"ID":16,"Name":"Go
-        To Closest Waypoint","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Enemy
-        Range","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
-        Range","IsShared":true,"SinglemValue":5},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Mine
-        range","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
+        Asteroid","Instant":true,"SharedStringvariable":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"OPERATORop":"SET","SharedStringvalue":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null}}]},{"Type":"IIM.ModifyBool","NodeData":{"Offset":"(774.6488,169.628967)"},"ID":16,"Name":"Modify
+        Bool","Instant":true,"SharedBoolvariable":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"GoToWaypoint","IsShared":true,"BooleanmValue":false},"OPERATORop":"SET","SharedBoolvalue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Enemy
+        Range","IsShared":true,"SinglemValue":0.6660755},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
+        Range","IsShared":true,"SinglemValue":2.2},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Mine
+        range","IsShared":true,"SinglemValue":9999},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Shockwave
         Energy","IsShared":true,"SinglemValue":0.4},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Player
-        Energy","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Asteroid
-        in the way","IsShared":true,"BooleanmValue":false}]}'
+        Energy","IsShared":true,"SinglemValue":1},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Asteroid
+        in the way","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"UseShockwave","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"GoToWaypoint","IsShared":true,"BooleanmValue":false}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
