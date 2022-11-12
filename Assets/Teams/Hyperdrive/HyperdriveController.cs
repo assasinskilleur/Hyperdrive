@@ -132,28 +132,29 @@ namespace Hyperdrive {
 			RaycastHit2D[] hit2D = Physics2D.RaycastAll(us.Position, us.LookAt);
 			RaycastHit2D RaycastMine = hit2D.FirstOrDefault(raycastHit2D =>
 			raycastHit2D.collider.transform.parent.gameObject.TryGetComponent(out Mine mine));
-			
-			if(RaycastMine.distance != 0 )
-				currentBehaviorTree.GetVariable("Mine")?.SetValue(true);
+
+			if (RaycastMine.distance != 0 && AimingHelpers.CanHit(us, RaycastMine.transform.position, 0.15f))
+				currentBehaviorTree.GetVariable("Mine").SetValue(true);
 			else
-				currentBehaviorTree.GetVariable("Mine")?.SetValue(false);
+				currentBehaviorTree.GetVariable("Mine").SetValue(false);
 
 
 		}
 
 		private void ShootEnemyPerfectTime(SpaceShipView us, SpaceShipView enemy)
-        {
+		{
 			//GameObject.Find("SpaceShip" + (enemy.Owner + 1)).GetComponent<SpaceShip>().IsStun();
 			float currentDistance = (us.Position - enemy.Position).sqrMagnitude;
 			float time = currentDistance / Bullet.Speed;
 
-			if(time < enemy.HitCountdown)
-				currentBehaviorTree.GetVariable("EnemyInvulnerability")?.SetValue(false);
+			if (time < enemy.HitCountdown && AimingHelpers.CanHit(us, enemy.Position, 0.15f) && us.Energy > 0.40f)
+				currentBehaviorTree.GetVariable("EnemyInvulnerability").SetValue(true);
 			else
-				currentBehaviorTree.GetVariable("EnemyInvulnerability")?.SetValue(true);
-
+				currentBehaviorTree.GetVariable("EnemyInvulnerability").SetValue(false);
 
 		}
+
 	}
+}
 
 }
