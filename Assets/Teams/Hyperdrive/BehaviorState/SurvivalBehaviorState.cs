@@ -12,8 +12,7 @@ public class SurvivalBehaviorState : StateMachineBehaviour
     {
         animator.gameObject.GetComponent<BehaviorTree>().ExternalBehavior = myBehaviorTree;
         animator.GetComponent<BehaviorTree>().EnableBehavior();
-        animator.gameObject.GetComponent<HyperdriveController>()
-            .SetCurrentBehaviorTree(animator.gameObject.GetComponent<BehaviorTree>());
+        animator.gameObject.GetComponent<HyperdriveController>().SetCurrentBehaviorTree(animator.gameObject.GetComponent<BehaviorTree>());
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
